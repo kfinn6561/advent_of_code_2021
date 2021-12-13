@@ -10,7 +10,7 @@ for line in lines:
     data[a].append(b)
     data[b].append(a)
 
-paths=[['start']]
+paths=[[False,'start']]
 finished=[]
 
 while len(paths)>0:
@@ -24,5 +24,9 @@ while len(paths)>0:
         else:
             if next not in path:
                 paths.append(p)
+            elif not p[0] and (next!='start'):
+                p[0]=True
+                paths.append(p)
+
 
 print(len(finished))
