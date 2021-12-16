@@ -54,6 +54,7 @@ while len(to_check)>0:
     lr=get_lowest_risk(i,j)
     if lr<lowest_risk[i][j]:
         lowest_risk[i][j]=lr
-        to_check+=get_neighbours(i,j)
+        if lr+(N-i-1)+(M-j-1)<lowest_risk[-1][-1]:
+            to_check+=get_neighbours(i,j)
 
 print(lowest_risk[-1][-1])
